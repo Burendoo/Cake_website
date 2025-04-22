@@ -12,7 +12,10 @@ class CakeAdmin(admin.ModelAdmin):
     search_fields = ('name', 'description')
     actions = ['delete_selected']
 
+class FlavourAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug':('flavour_name',)}
+
 
 admin.site.register(CakeModel, CakeAdmin)
-admin.site.register(Flavour) 
+admin.site.register(Flavour, FlavourAdmin) 
 

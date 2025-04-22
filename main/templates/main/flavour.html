@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  {{flavour.flavour_name}}
+{% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'main/flavour.css' %}" />
+{% endblock %}
+
+{% block content %}
+<h1>{{flavour.flavour_name}}</h1>
+
+{% for cake in cakes %}
+  <h1>{{ cake.name }}</h1>
+{% endfor %}
+
+
+{% endblock %}

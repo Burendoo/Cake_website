@@ -7,9 +7,14 @@ from django.utils.text import slugify
 
 class Flavour(models.Model):
       flavour_name = models.CharField(max_length=100, unique=True)
+      slug = models.SlugField(max_length=100, unique=True, db_index=True)
       
       def __str__(self):
             return self.flavour_name
+      
+      def save(self, *args, **kwargs):
+        self.slug = slugify(self.flavour_name)
+        super().save(*args, **kwargs)
 
       def delete(self, *args, **kwargs):
             super().delete(*args, **kwargs)

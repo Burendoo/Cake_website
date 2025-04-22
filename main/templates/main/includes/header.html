@@ -1,0 +1,29 @@
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <header class="header-container">
+    <div class="nav-container">
+          <div class="navdiv">
+            <a href="{% url 'home' %}">
+                  <ul class="logo-list">
+                        <li><img src="{% static 'main/images/Logo.jpg' %}" alt="" class="logo"></li>
+                        <li><h1>Eda Cakes</h1></li>
+                  </ul>
+            </a>
+          </div>
+          <nav class="navbar">
+                <ul class="nav-list">
+                      <li><a href="#">Contact</a></li>
+                      <li><a href="#">About me</a></li>
+                </ul>
+          </nav>
+    </div>
+  </header>
+
+  <hr class="line" >
+</div>
+
+
+{% endblock content %}
+

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Home
+{% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'main/search.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <h1>{{ cake.name }}</h1>
+  <p>{{ cake.description }}</p>
+{% endblock %}

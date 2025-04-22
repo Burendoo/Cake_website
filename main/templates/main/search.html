@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Home
+{% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'main/search.css' %}" />
+{% endblock %}
+
+{% block content %}
+  {% if cakes %}
+      <h1>Search results found</h1>
+      {% for cake in cakes %}
+            <h3>{{ cake.name }}</h3>
+      {% endfor %}
+  {% else %}
+      <h1>No results found</h1>
+  {% endif %}
+{% endblock %}

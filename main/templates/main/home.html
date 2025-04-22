@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'main/home.css' %}">
+{% endblock css_files %}
+
+{% block content %}
+<div class="container">
+      <header class="header-container">
+            <div class="nav-container">
+                  <div class="navdiv">
+                        <h1>Eda Cakes</h1>
+                  </div>
+                  <nav class="navbar">
+                        <ul class="nav-list">
+                              <li><a href="#">Contact</a></li>
+                              <li><a href="#">Cart</a></li>
+                              <li><a href="#">About us</a></li>
+                        </ul>
+                  </nav>
+            </div>
+      </header>
+
+      <hr class="line" >
+
+      <div class="popular-container">
+            <h2>Popular Cakes</h2>
+             <div class="popular-cakes">
+                  {% for cake in popular_cakes %}
+                        <div class="popular-cake-card">
+                              <img class="popular-cake-image" src="{{ cake.image.url }}" alt="{{ cake.name }}">
+                              <h3>{{ cake.name }}</h3>
+                              <p>{{ cake.short_description }}</p>
+                              <p>Price: {{ cake.price }}€</p>
+                              {% for flavour in popular_cakes.flavour  %}
+                                    <span>{{ flavour.flavour_name }}</span>
+                              {% endfor %}
+                        </div>
+                  {% endfor %} 
+            </div>
+      </div>
+
+      <div class="search-bar-container">
+           <form action="{% url 'search' %}" method="get">
+                  <input type="text" name="query" placeholder="Search for cakes..." required>
+                  <button type="submit">Search</button>
+           </form> 
+      </div>
+
+
+      <div class="flavous-container">
+            <h2>Flavours</h2>
+            <div class="flavours-cards">
+                  {% for flavour in flavours %}
+                        <div class="flavour-card">
+                              <button><a href="#">{{ flavour.flavour_name }}</a></button>
+                        </div>
+                  {% endfor %}
+
+      </div>
+</div>
+{% endblock content %}

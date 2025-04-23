@@ -1,9 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
+
 .container{
-    max-width: 100rem;
+    
     margin: 0 auto;
     padding: 0 2rem;
     height: 100vh auto;
     background-color: #fdfdfd;
+}
+
+.logo{
+    max-width: 100px;
+    border-radius: 50%; 
+    object-fit: cover;
+   
+}
+
+.logo_name{
+    font-family: 'Tangerine', cursive;
+    font-size: 4rem;
+    opacity: 75%;
 }
 
 .header-container{
@@ -11,6 +26,30 @@
     
 }
 
+.icon-list{
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+
+}
+
+.icon-list li a img{
+    width: 1.5rem;
+}
+
+.logo-list{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+}
+
+.navdiv a{
+    text-decoration: none;
+    color: #181818;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
 
 .nav-container{
     max-width: 100rem;
@@ -37,9 +76,35 @@
     font-weight: 500;
 }
 
+/* UNder */
+
+.nav-info-container{
+    max-width: 100rem;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fdfdfd; 
+    padding-top: 30px;
+}
+
+.info-list{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+}
+
+.info-list li a{
+    text-decoration: none;
+    color: #181818;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
 .line{
-    max-width: 104rem;
-    width: 100%;
+    width: 86rem;
     border: 1.2px solid rgb(12, 12, 12);
     margin: 0 auto;
 }

@@ -14,16 +14,22 @@
 
 
       <div class="popular-container">
-            <h2>Popular Cakes</h2>
+            <div class="section-header">
+			<span class="title-decor-line"></span>
+                  <h3 class="section-title">Popular</h3>
+                  <span class="title-decor-line"></span>
+		</div>
              <div class="popular-cakes">
                   {% for cake in popular_cakes %}
                         <div class="popular-cake-card">
-                              <a href="{% url "cake_info" cake.slug %}">
+                              <a href="{% url "cake_info" cake.slug %}" class="cake-image-container">
                                     <img class="popular-cake-image" src="{{ cake.image.url }}" alt="{{ cake.name }}">
-                                    <h3>{{ cake.name }}</h3>
+                                    <div class="cake-name-overlay">{{ cake.name }}</div>
+                              </a>
+                              <div class="cake-details">
                                     <p>{{ cake.short_description }}</p>
                                     <p>Price: {{ cake.price }}€</p>
-                              </a>
+                              </div>
                               <a href="">Order Now</a>
                         </div>
                   {% endfor %} 
@@ -31,37 +37,74 @@
       </div>
 
       <div class="search-bar-container">
-           <form action="{% url 'search' %}" method="get">
-                  <input type="text" name="query" placeholder="Search for cakes..." required>
-                  <button type="submit">Search</button>
+           <form action="{% url 'search' %}" method="get" class="search-form">
+                  <input type="text" name="query" placeholder="Search for cakes..." required class="search-input">      
+                  <button type="submit" class="search-button">Search</button>
            </form> 
       </div>
+</div>
 
 
+
+      <div class="section-about">
+            <span class="title-decor-line"></span>
+            <h3 class="section-title">About me</h3>
+            <span class="title-decor-line"></span>
+      </div>
+      <div class="about-container">
+            <div class="about-content">
+                  <div class="content">
+                        <h1>Hi, Im Ekzana</h1>
+                        <p>Welcome to my cake shop! I am a passionate baker with a love for creating delicious and beautiful cakes. Each cake is made with the finest ingredients and a lot of love. Whether you're looking for a birthday cake, wedding cake, or just a treat for yourself, I have something for everyone. Thank you for visiting my shop!</p>
+                  </div>   
+                  <div class="about-image">
+                        <img src="{% static 'main/images/ekzana.jpg' %}" alt="About Me">
+
+                  </div>   
+            </div>
+      </div>
+
+<div class="container">
       <div class="flavous-container">
-            <h2>Flavours</h2>
+            <div class="section-flavour">
+                  <span class="title-decor-line"></span>
+                  <h3 class="section-title">Flavours</h3>
+                  <span class="title-decor-line"></span>
+            </div>
             <div class="flavours-cards">
                   {% for flavour in flavours %}
                         <div class="flavour-card">
-                              
-                              <a href="{% url "cake_by_flavour" flavour.slug%}">{{ flavour.flavour_name }}</a>
+                              <ul>
+                                    <li>
+                                          <a href="{% url "cake_by_flavour" flavour.slug%}" class="flavour-btn">
+                                                {{ flavour.flavour_name }}</a>
+                                    </li>
+                              </ul>
                         </div>
                   {% endfor %}
             </div>
       </div>
 
       <div class="latest-container">
-            <h2>Latest Cakes</h2>
-            <div class="latest-cakes">
-                  {% for latest_cake in latest_cakes %}
-                  <div class="latest-cake-card">
-                        <img class="latest-cake-image" src="{{ latest_cake.image.url }}" alt="{{ latest_cake.name }}">
-                        <h3>{{ latest_cake.name }}</h3>
-                        <p>{{ latest_cake.short_description }}</p>
-                        <p>Price: {{ latest_cake.price }}€</p>
-                  </div>
-                    
-                  {% endfor %}
+            <div class="section-header">
+			<span class="title-decor-line"></span>
+                  <h3 class="section-title">Latest</h3>
+                  <span class="title-decor-line"></span>
+		</div>
+             <div class="latest-cakes">
+                  {% for cake in latest_cakes %}
+                        <div class="latest-cake-card">
+                              <a href="{% url "cake_info" cake.slug %}" class="cake-image-container">
+                                    <img class="latest-cake-image" src="{{ cake.image.url }}" alt="{{ cake.name }}">
+                                    <div class="cake-name-overlay">{{ cake.name }}</div>
+                              </a>
+                              <div class="cake-details">
+                                    <p>{{ cake.short_description }}</p>
+                                    <p>Price: {{ cake.price }}€</p>
+                              </div>
+                              <a href="">Order Now</a>
+                        </div>
+                  {% endfor %} 
             </div>
       </div>
 </div>

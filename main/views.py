@@ -11,7 +11,7 @@ class HomeView(View):
           flavours = Flavour.objects.all()
           cakes = CakeModel.objects.all()
           latest_cakes = cakes.order_by('-created_at')
-          popular_cakes = cakes.filter(is_popular=True).order_by('-created_at')[:4]
+          popular_cakes = cakes.filter(is_popular=True).order_by('-created_at')[:3]
           context = {
               'cakes':cakes,
               'latest_cakes':latest_cakes,

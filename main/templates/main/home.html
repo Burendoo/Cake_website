@@ -15,26 +15,28 @@
 
       <div class="popular-container">
             <div class="section-header">
-			<span class="title-decor-line"></span>
-                  <h3 class="section-title">Popular</h3>
-                  <span class="title-decor-line"></span>
-		</div>
-             <div class="popular-cakes">
-                  {% for cake in popular_cakes %}
-                        <div class="popular-cake-card">
-                              <a href="{% url "cake_info" cake.slug %}" class="cake-image-container">
-                                    <img class="popular-cake-image" src="{{ cake.image.url }}" alt="{{ cake.name }}">
-                                    <div class="cake-name-overlay">{{ cake.name }}</div>
-                              </a>
-                              <div class="cake-details">
-                                    <p>{{ cake.short_description }}</p>
-                                    <p>Price: {{ cake.price }}€</p>
-                              </div>
-                              <a href="">Order Now</a>
-                        </div>
-                  {% endfor %} 
+                <span class="title-decor-line"></span>
+                <h3 class="section-title">Popular</h3>
+                <span class="title-decor-line"></span>
             </div>
-      </div>
+            <div class="popular-cakes">
+                {% for cake in popular_cakes %}
+                <div class="popular-cake-card">
+                    <a href="{% url 'cake_info' cake.slug %}" class="cake-image-container">
+                        <img class="popular-cake-image" src="{{ cake.image.url }}" alt="{{ cake.name }}">
+                        <div class="cake-name-overlay">{{ cake.name }}</div>
+                    </a>
+                    <div class="cake-description">
+                        <p>{{ cake.short_description }}</p>
+                  </div>
+                  <div class="cake-price-container">
+                    <p class="cake-price">Price: {{ cake.price }}€</p>
+                    <a href="" class="order-button">Order Now</a>
+                  </div>      
+                </div>
+                {% endfor %} 
+            </div>
+        </div>
 
       <div class="search-bar-container">
            <form action="{% url 'search' %}" method="get" class="search-form">
@@ -87,25 +89,27 @@
 
       <div class="latest-container">
             <div class="section-header">
-			<span class="title-decor-line"></span>
-                  <h3 class="section-title">Latest</h3>
-                  <span class="title-decor-line"></span>
-		</div>
-             <div class="latest-cakes">
-                  {% for cake in latest_cakes %}
-                        <div class="latest-cake-card">
-                              <a href="{% url "cake_info" cake.slug %}" class="cake-image-container">
-                                    <img class="latest-cake-image" src="{{ cake.image.url }}" alt="{{ cake.name }}">
-                                    <div class="cake-name-overlay">{{ cake.name }}</div>
-                              </a>
-                              <div class="cake-details">
-                                    <p>{{ cake.short_description }}</p>
-                                    <p>Price: {{ cake.price }}€</p>
-                              </div>
-                              <a href="">Order Now</a>
-                        </div>
-                  {% endfor %} 
+                <span class="title-decor-line"></span>
+                <h3 class="section-title">Latest</h3>
+                <span class="title-decor-line"></span>
             </div>
-      </div>
+            <div class="latest-cakes">
+                {% for cake in latest_cakes %}
+                <div class="latest-cake-card">
+                    <a href="{% url 'cake_info' cake.slug %}" class="cake-image-container">
+                        <img class="latest-cake-image" src="{{ cake.image.url }}" alt="{{ cake.name }}">
+                        <div class="cake-name-overlay">{{ cake.name }}</div>
+                    </a>
+                    <div class="cake-description">
+                        <p>{{ cake.short_description }}</p>
+                  </div>
+                  <div class="cake-price-container">
+                    <p class="cake-price">Price: {{ cake.price }}€</p>
+                    <a href="" class="order-button">Order Now</a>
+                  </div>      
+                </div>
+                {% endfor %} 
+            </div>
+        </div>
 </div>
 {% endblock content %}

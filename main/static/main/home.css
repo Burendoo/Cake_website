@@ -1,24 +1,188 @@
 /* Header styles */
 
 .section-header {
-  text-align: center;
-  margin: 70px 0 40px 0;
-  position: relative;
-  
+      text-align: center;
+      margin: 70px 0 40px 0;
+      position: relative;
+      
 }
 
 
 
 .section-header .section-title {
+      display: inline-block;
+      font-size: 30px;
+      font-weight: bold;
+      color: #030303;
+      margin: 0 15px;
+      position: relative;
+      z-index: 1;
+      background-color: #fff;
+      /* background to cover the line behind */
+      padding: 0 10px;
+}
+
+.title-decor-line {
+      display: inline-block;
+      width: 20rem;
+      height: 2px;
+      background-color: #6b6b6b;
+      vertical-align: middle;
+}
+
+
+/* End of Header Styles */
+
+.container{
+  max-width: 90rem;
+}
+
+
+/* Popular cakes styles */
+
+
+/* Card Container */
+
+
+.popular-cakes {
+      
+      background-color: #fff5f5;      
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      padding: 2rem;
+      gap: 2rem;
+      justify-content: center;
+    }
+    
+    /* Individual Card */
+    .popular-cake-card {
+      width: 24rem;
+      background: white;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    
+    /* Image Container */
+    .cake-image-container {
+      position: relative;
+      margin: -2rem -2rem 1rem -2rem; /* Counteracts card padding */
+    }
+    
+    .popular-cake-image {
+      width: 100%;
+      height: 25rem;
+      object-fit: cover;
+      display: block;
+    }
+    
+    /* Name Overlay */
+    .cake-name-overlay {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      right: 1rem;
+      background-color: pink;
+      color: black;
+      padding: 1rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 0.3rem;
+      transform: translateY(50%); /* Makes it overlap the image edge */
+      z-index: 2;
+    }
+    
+    /* Details Section */
+    .cake-description {
+      margin-top: 20px;
+      flex-grow: 1;
+      padding: 1rem 0;
+      position: relative;
+      min-height: 6rem;
+      line-height: 1.2;
+    }
+    
+    /* Price Position */
+    .cake-price-container{
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cake-price{
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+    
+    /* Order Button */
+    .order-button{
+      display: inline-block;
+      background: #ff6b6b;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 0.3rem;
+      text-decoration: none;
+      text-align: center;
+      align-self: flex-end;
+      margin-top: auto;
+
+    }
+    
+    .popular-cake-card > a[href=""]:hover {
+      background: #ff5252;
+    }
+
+/* End of Popular */
+
+/* Start of Search Bar */
+
+.search-form{
+      padding: 2rem 0;
+      margin-bottom: 80px;
+}
+
+.search-input{
+      width: 70%;
+      padding: 0.5rem 1rem;
+      border: 2px solid #555555;
+      font-size: 1.6rem;
+     
+}
+
+.search-button{
+      padding: 0.5rem 8.5rem;
+      background-color: #ff6b6b;
+      color: white;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      margin-left: 1rem;
+}
+/* End of Search Bar */
+
+/* About */
+
+.section-about {
+  text-align: center;
+  margin: 200px 0 80px 0;
+  position: relative;
+}
+
+.section-about .section-title {
   display: inline-block;
-  font-size: 30px;
+  font-size: 50px;
   font-weight: bold;
   color: #030303;
   margin: 0 15px;
   position: relative;
   z-index: 1;
-  background-color: #fff;
-  /* background to cover the line behind */
   padding: 0 10px;
 }
 
@@ -30,280 +194,95 @@
   vertical-align: middle;
 }
 
-
-/* End of Header Styles */
-
-.container{
-max-width: 90rem;
-}
-
-
-/* Popular cakes styles */
-
-
-/* Card Container */
-
-
-.popular-cakes {
-  
-  background-color: #dfdfdf;      
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  padding: 2rem;
-  gap: 2rem;
-  justify-content: center;
-}
-
-/* Individual Card */
-.popular-cake-card {
-  width: 20rem;
-  background: white;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-/* Image Container */
-.cake-image-container {
-  position: relative;
-  margin: -2rem -2rem 1rem -2rem; /* Counteracts card padding */
-}
-
-.popular-cake-image {
-  width: 100%;
-  height: 25rem;
-  object-fit: cover;
-  display: block;
-}
-
-/* Name Overlay */
-.cake-name-overlay {
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
-  background-color: pink;
-  color: black;
-  padding: 1rem;
-  font-size: 1.6rem;
-  font-weight: bold;
-  text-align: center;
-  border-radius: 0.3rem;
-  transform: translateY(50%); /* Makes it overlap the image edge */
-  z-index: 2;
-}
-
-/* Details Section */
-.cake-details {
-  flex-grow: 1;
-  padding: 1rem 0;
-  position: relative;
-  min-height: 6rem;
-}
-
-/* Price Position */
-.cake-details p:last-of-type {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  font-weight: bold;
-  font-size: 1.4rem;
-}
-
-/* Order Button */
-.popular-cake-card > a[href=""] {
-  display: inline-block;
-  background: #ff6b6b;
-  color: white;
-  padding: 0.8rem 1.5rem;
-  border-radius: 0.3rem;
-  text-decoration: none;
-  text-align: center;
-  align-self: flex-end;
-  margin-top: auto;
-}
-
-.popular-cake-card > a[href=""]:hover {
-  background: #ff5252;
-}
-
-/* End of Popular */
-
-/* Start of Search Bar */
-
-.search-form{
-  padding: 2rem 0;
-  margin-bottom: 80px;
-}
-
-.search-input{
-  width: 70%;
-  padding: 0.5rem 1rem;
-  border: 2px solid #555555;
-  font-size: 1.6rem;
- 
-}
-
-.search-button{
-  padding: 0.5rem 8.5rem;
-  background-color: #ff6b6b;
-  color: white;
-  border: none;
-  font-size: 1.6rem;
-  cursor: pointer;
-  margin-left: 1rem;
-}
-/* End of Search Bar */
-
-/* About */
-
-.section-about {
-text-align: center;
-margin: 200px 0 80px 0;
-position: relative;
-
-}
-
-
-
-.section-about .section-title {
-display: inline-block;
-font-size: 50px;
-font-weight: bold;
-color: #030303;
-margin: 0 15px;
-position: relative;
-z-index: 1;
-padding: 0 10px;
-}
-
-.title-decor-line {
-display: inline-block;
-width: 20rem;
-height: 2px;
-background-color: #6b6b6b;
-vertical-align: middle;
-}
-
 .about-container {
-width: 100vw;
-position: relative;
-left: 50%;
-right: 50%;
-margin-left: -50vw;
-margin-right: -50vw;
-background-color: rgb(237, 212, 200);
-padding: 4rem 0;
-overflow: hidden; 
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: rgb(241, 231, 226);
+  padding: 4rem 0;
+  overflow: hidden; 
 }
-
 
 .about-content {
-max-width: 80rem; 
-margin: 0 auto;
-display: flex;
-align-items: center;
-gap: 4rem;
-padding: 0 2rem; 
-}
-
-
-.section-about {
-text-align: center;
-margin: 0 auto 40px;
-max-width: 80rem;
-padding: 0 2rem;
+  max-width: 1200px; 
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 0 2rem; 
 }
 
 .content {
-flex: 1;
-padding-right: 2rem;
-text-align: center;
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
+.text-content {
+  max-width: 500px; /* Adjust this to control text width */
+  text-align: center;
+  margin-right: 50px;
+}
+
+.about-text {
+  margin: 20px 0;
+  line-height: 1.6;
+  font-size: 1.4rem;
+}
+
+.about-text p {
+  margin: 0;
+  padding: 0;
+}
+
+.about-card {
+  margin-top: 30px;
+}
+
+.about-me {
+  padding: 1rem 2rem;
+  background-color: rgb(194, 126, 138);
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.about-me:hover {
+  background-color: rgb(172, 75, 93);
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+
+
 .about-image {
-flex: 1;
-max-width: 500px;
+  flex: 1;
+  max-width: 450px;
 }
 
 .about-image img {
-width: 80%;
-height: auto;
-border-radius: 2rem;
+  width: 100%;
+  height: auto;
+  border-radius: 2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Start of Flavour */
-
-.section-flavour {
-text-align: center;
-margin: 70px 0 40px 0;
-position: relative;
-
-}
-
-
-
-.section-flavour .section-title {
-display: inline-block;
-font-size: 30px;
-font-weight: bold;
-color: #030303;
-margin: 0 15px;
-position: relative;
-z-index: 1;
-background-color: #fff;
-/* background to cover the line behind */
-padding: 0 10px;
-}
-
-.title-decor-line {
-display: inline-block;
-width: 20rem;
-height: 2px;
-background-color: #6b6b6b;
-vertical-align: middle;
-}
-
-
-
-.flavours-cards{
-display: flex;
-justify-content: center;
-gap: 1rem;
-}
-
-.flavour-card ul {
-list-style: none;
-padding: 0;
-margin: 0;
-}
-
-.flavour-card li {
-margin: 10px 0;
-}
-
-/* Button styling */
-.flavour-btn {
-display: inline-block;
-background-color: pink;
-color: white; /* Or black, depending on contrast you want */
-padding: 10px 20px;
-text-decoration: none;
-border: none;
-border-radius: 8px;
-font-weight: bold;
-font-family: inherit;
-transition: background-color 0.3s ease;
-}
-
-.flavour-btn:hover {
-background-color: hotpink;
-color: white;
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .content, .about-image {
+    width: 100%;
+  }
 }
 
 
@@ -311,6 +290,8 @@ color: white;
 /* Start of Latest Cakes */
 
 .latest-cakes {
+      
+
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
@@ -321,7 +302,7 @@ color: white;
 
 /* Individual Card */
 .latest-cake-card {
-  width: 20rem;
+  width: 24rem;
   background: white;
   border-radius: 0.5rem;
   overflow: hidden;
@@ -363,24 +344,30 @@ color: white;
 }
 
 /* Details Section */
-.cake-details {
+.cake-description {
+  margin-top: 20px;
   flex-grow: 1;
   padding: 1rem 0;
   position: relative;
   min-height: 6rem;
+  line-height: 1.2;
 }
 
 /* Price Position */
-.cake-details p:last-of-type {
-  position: absolute;
-  left: 0;
-  bottom: 0;
+.cake-price-container{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cake-price{
   font-weight: bold;
   font-size: 1.4rem;
 }
 
 /* Order Button */
-.latest-cake-card > a[href=""] {
+.order-button{
   display: inline-block;
   background: #ff6b6b;
   color: white;
@@ -390,10 +377,12 @@ color: white;
   text-align: center;
   align-self: flex-end;
   margin-top: auto;
+
 }
 
 .latest-cake-card > a[href=""]:hover {
   background: #ff5252;
 }
+
 
 /* End of Latest Cakes */

@@ -1,46 +1,42 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
+<div class="header-wrapper">
       <header class="header-container">
-            <div class="nav-container">
-                  <div class="navdiv">
-                        <a href="{% url 'home' %}">
-                              <ul class="logo-list">
-                                    <li><img src="{% static 'main/images/Logo.jpg' %}" alt="" class="logo"></li>
-                                    <li>
-                                          <h1 class="logo_name">Eda Cakes</h1>
-                                    </li>
-                              </ul>
-                        </a>
-                  </div>
-                  <div class="icons">
-                        <ul class="icon-list">
-                              <li><a href="https://www.facebook.com/edacakes"><img src="{% static "main/images/facebook.png" %}" alt=""></a></li>
-                              <li><a href="https://www.instagram.com/edacakes/"><img src="{% static "main/images/instagram.png" %}" alt=""></a></li>
-                        </ul>
-                  </div>
+          <div class="nav-container">
+              <div class="navdiv">
+                  <a href="/">
+                      <ul class="logo-list">
+                          <li><img src="{% static 'main/images/Logo.jpg' %}" alt="Eda Cakes Logo" class="logo"></li>
+                          <li><h1 class="logo_name">Eda Cakes</h1></li>
+                      </ul>
+                  </a>
+              </div>
+              <div class="icons">
+                  <ul class="icon-list">
+                      <li><a href="https://www.facebook.com/edacakes"><img src="{% static 'main/images/facebook.png' %}" alt="Facebook"></a></li>
+                      <li><a href="https://www.instagram.com/edacakes/"><img src="{% static 'main/images/instagram.png' %}" alt="Instagram"></a></li>
+                  </ul>
+              </div>
+          </div>
 
-            </div>
-
-            <div class="nav-info-container">
-                  <div class="info-container">
-                        <ul class="info-list">
-                              <li><a href="">Location</a></li>
-                              <li><a href="">About Me</a></li>
-                              <li><a href="">All Cakes</a></li>
-                        </ul>
-                  </div>
-                  <nav class="navbar">
-                        <ul class="nav-list">
-                              <li><a href="#">Contact</a></li>
-                        </ul>
-                  </nav>
-            </div>
+          <div class="nav-info-container">
+              <div class="info-container">
+                  <ul class="info-list">
+                      <li><a href="">Location</a></li>
+                      <li><a href="">About Me</a></li>
+                      <li><a href="">All Cakes</a></li>
+                  </ul>
+              </div>
+              <nav class="navbar">
+                  <ul class="nav-list">
+                      <li><a href="#">Contact</a></li>
+                  </ul>
+              </nav>
+          </div>
       </header>
-
       <hr class="line">
-</div>
+  </div>
 
 
 {% endblock content %}

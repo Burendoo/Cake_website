@@ -23,14 +23,14 @@
           <div class="nav-info-container">
               <div class="info-container">
                   <ul class="info-list">
-                      <li><a href="">Location</a></li>
                       <li><a href="">About Me</a></li>
                       <li><a href="">All Cakes</a></li>
+
                   </ul>
               </div>
               <nav class="navbar">
                   <ul class="nav-list">
-                      <li><a href="#">Contact</a></li>
+                      <li><a href="#">Contact & Location</a></li>
                   </ul>
               </nav>
           </div>
@@ -40,3 +40,7 @@
 
 
 {% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'main/js/search-popup.js' %}"></script>
+{% endblock scripts %}

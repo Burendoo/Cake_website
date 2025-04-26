@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  
+{% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'main/about.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="about-page">
+      <header class="about-header">
+          <h1>Hi, I'm Ekzana</h1>
+      </header>
+      
+      <main class="about-content">
+            
+            <div class="about-image">
+                <img src="{% static 'main/images/ekzana.jpg' %}" alt="Ekzana the Baker">
+            </div>
+            
+            <div class="about-text">
+                <p>I'm a passionate baker specializing in custom cakes and desserts. With over 5 years of experience, I create beautiful, delicious treats for all occasions. My philosophy is simple: use only the finest ingredients and pour love into every creation.</p>
+                
+                <p>When I'm not baking, you can find me teaching cake decorating classes or developing new recipes inspired by seasonal flavors from around the world.</p>
+            </div>
+            
+      </main>
+      <div class="about-content-2">
+            
+            <div class="about-text">
+                  <p>I'm a passionate baker specializing in custom cakes and desserts. With over 5 years of experience, I create beautiful, delicious treats for all occasions. My philosophy is simple: use only the finest ingredients and pour love into every creation.</p>
+                  
+                  <p>When I'm not baking, you can find me teaching cake decorating classes or developing new recipes inspired by seasonal flavors from around the world.</p>
+            </div>
+            <div class="about-image-2">
+                  <img src="{% static 'main/images/ekzana.jpg' %}" alt="Ekzana the Baker">
+            </div>
+      </div>
+  </div>
+
+{% endblock %}

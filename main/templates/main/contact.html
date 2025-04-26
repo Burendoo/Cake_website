@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  
+{% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'main/contact.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+      <div class="contact-section">
+          <div class="contact-info">
+              <h2>Contact Us</h2>
+              <p>Have questions or need assistance? Reach out to us through any of the channels below.</p>
+              
+              <div class="contact-details">
+                  <div class="contact-item">
+                      <div class="contact-icon">
+                          <i class="fas fa-map-marker-alt"></i>
+                      </div>
+                      <div class="contact-text">
+                          <h3>Address</h3>
+                          <p>Eda Cake - Torte me Porosi<br>Prishtina, Kosovo</p>
+                      </div>
+                  </div>
+                  
+                  <div class="contact-item">
+                      <div class="contact-icon">
+                          <i class="fas fa-phone-alt"></i>
+                      </div>
+                      <div class="contact-text">
+                          <h3>Phone</h3>
+                          <p><a href="tel:+38344123456">+383 44 123 456</a></p>
+                          <p><a href="tel:+38349123456">+383 49 123 456</a></p>
+                      </div>
+                  </div>
+                  
+                  <div class="contact-item">
+                      <div class="contact-icon">
+                          <i class="fas fa-envelope"></i>
+                      </div>
+                      <div class="contact-text">
+                          <h3>Email</h3>
+                          <p><a href="mailto:info@edacake.com">info@edacake.com</a></p>
+                          <p><a href="mailto:orders@edacake.com">orders@edacake.com</a></p>
+                      </div>
+                  </div>
+                  
+                  <div class="contact-item">
+                      <div class="contact-icon">
+                          <i class="fas fa-clock"></i>
+                      </div>
+                      <div class="contact-text">
+                          <h3>Hours</h3>
+                          <p>Monday - Friday: 8am - 8pm</p>
+                          <p>Saturday: 9am - 6pm</p>
+                          <p>Sunday: 10am - 4pm</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="map-container">
+              <!-- Updated Google Maps embed for Eda Cake -->
+              <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2933.942481743926!2d21.173918!3d42.6657954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549f66a9c78067%3A0x553fc1c56eb33a1a!2sEda%20cake%20-%20torte%20me%20porosi!5e0!3m2!1sen!2s!4v1716834341230!5m2!1sen!2s" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+              <div class="map-placeholder" style="display:none;">
+                  Map loading failed. Please try again later.
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script>
+      // Fallback in case iframe fails to load
+      document.querySelector('.map-container iframe').onerror = function() {
+          document.querySelector('.map-placeholder').style.display = 'flex';
+      };
+  </script>
+
+
+
+{% endblock %}

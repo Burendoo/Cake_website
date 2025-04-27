@@ -34,7 +34,12 @@
       vertical-align: middle;
 }
 
-
+.page-num{
+      font-size: 1.4rem;
+      color: #b02349;
+      margin-top: 10px;
+      text-align: center;
+}
 
 /* Individual Card */
 .search-cakes {
@@ -45,7 +50,7 @@
   margin: 0 auto;
   padding: 2rem;
   gap: 2rem;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 /* Individual Card */

@@ -45,7 +45,7 @@ def search(request):
         
         if query:
             cakes = CakeModel.objects.filter(name__icontains=query)
-            paginator = Paginator(cakes, 9)  # Show 6 cakes per page
+            paginator = Paginator(cakes, 9)  # Show 9 cakes per page
             
             try:
                 page_obj = paginator.page(page_number)
@@ -55,7 +55,9 @@ def search(request):
             
             context = {
                 "cakes": page_obj,
-                "query": query
+                "query": query,
+                "page_num":page_number
+
             }
             return render(request, 'main/search.html', context)
     

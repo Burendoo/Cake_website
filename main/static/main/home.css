@@ -57,7 +57,7 @@
     
     /* Individual Card */
     .popular-cake-card {
-      width: 20rem;
+      width: 24rem;
       background: white;
       border-radius: 0.5rem;
       overflow: hidden;
@@ -293,7 +293,7 @@
     
     /* Individual Card */
     .latest-cake-card {
-      width: 20rem;
+      width: 24rem;
       background: white;
       border-radius: 0.5rem;
       overflow: hidden;

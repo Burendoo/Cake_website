@@ -9,3 +9,8 @@ __pycache__/
 *$py.class
 db.sqlite3
 *.log
+
+Cake_website\main\migrations
+main\migrations
+Cake_website/main/migrations
+main/migrations

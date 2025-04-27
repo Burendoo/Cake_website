@@ -6,10 +6,50 @@
 {% endblock %}
 
 {% block css_files %}
-  <link rel="stylesheet" href="{% static 'main/search.css' %}" />
+  <link rel="stylesheet" href="{% static 'main/cake_view.css' %}" />
 {% endblock %}
 
 {% block content %}
-  <h1>{{ cake.name }}</h1>
-  <p>{{ cake.description }}</p>
+<div class="cake-detail-container">
+  <div class="cake-detail">
+    <div class="cake-image-container">
+      <img src="{{cake.image.url}}" alt="{{cake.name}}" class="cake-detail-image">
+    </div>
+    
+    <div class="cake-detail-info">
+      <h1 class="cake-title">{{cake.name}}</h1>
+      
+      <div class="cake-meta">
+        {% if cake.is_available %}
+          <span class="availability available">Available</span>
+        {% else %}
+          <span class="availability unavailable">Currently Unavailable</span>
+        {% endif %}
+        <span class="cake-price">{{cake.price}} €</span>
+      </div>
+      
+      <div class="cake-description">
+        <h3>Description</h3>
+        <p>{{cake.description}}</p>
+      </div>
+      
+      {% if cake.flavour.exists %}
+      <div class="cake-flavours">
+        <h3>Flavours</h3>
+        <ul>
+        {% for flavour in cake.flavour.all %}
+          <li>{{ flavour.flavour_name }}</li>
+        {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      
+      {% if cake.is_available %}
+      <div class="cake-actions">
+        <button class="order-button">Order Now</button>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
 {% endblock %}

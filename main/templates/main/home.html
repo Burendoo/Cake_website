@@ -20,6 +20,7 @@
                   <span class="title-decor-line"></span>
 		</div>
              <div class="popular-cakes">
+                  {% if popular_cakes %}
                   {% for cake in popular_cakes %}
                         <div class="popular-cake-card">
                               <a href="{% url "cake_info" cake.slug %}" class="cake-image-container">
@@ -33,6 +34,7 @@
                               <a href="">Order Now</a>
                         </div>
                   {% endfor %} 
+                  {% endif %}
             </div>
       </div>
 

@@ -10,12 +10,58 @@
 {% endblock %}
 
 {% block content %}
-  {% if cakes %}
-      <h1>Search results found</h1>
-      {% for cake in cakes %}
-            <h3>{{ cake.name }}</h3>
-      {% endfor %}
-  {% else %}
-      <h1>No results found</h1>
+  <div class="container">
+    {% if cakes %}
+    <div class="search-container">
+        <div class="section-header">
+            <span class="title-decor-line"></span>
+            <h3 class="section-title">Search Results Found</h3>
+            <span class="title-decor-line"></span>
+        </div>
+        <div class="search-cakes">
+            {% for cake in cakes %}
+                <div class="search-cake-card">
+                    <a href="{% url 'cake_info' cake.slug %}" class="cake-image-container">
+                        <img class="search-cake-image" src="{{ cake.image.url }}" alt="{{ cake.name }}">
+                        <div class="cake-name-overlay">{{ cake.name }}</div>
+                    </a>
+                    <div class="cake-details">
+                        <p>{{ cake.short_description }}</p>
+                        <p>Price: {{ cake.price }}€</p>
+                    </div>
+                    <a href="">Order Now</a>
+                </div>
+            {% endfor %} 
+        </div>
+        
+        <div class="pagination-controls">
+          {% if cakes.has_previous %}
+          <div class="button-container">
+              <form method="get" class="pagination-form">
+                  <input type="hidden" name="query" value="{{ query }}">
+                  <input type="hidden" name="page" value="{{ cakes.previous_page_number }}">
+                  <button type="submit" class="pagination-button">← Previous Page</button>
+              </form>
+          </div>
+          {% endif %}
+  
+          {% if cakes.has_next %}
+          <div class="button-container">
+              <form method="get" class="pagination-form">
+                  <input type="hidden" name="query" value="{{ query }}">
+                  <input type="hidden" name="page" value="{{ cakes.next_page_number }}">
+                  <button type="submit" class="pagination-button">Next Page →</button>
+              </form>
+          </div>
+          {% endif %}
+      </div>
+    </div>
+    {% else %}
+  <div class="section-header">
+    <span class="title-decor-line"></span>
+    <h3 class="section-title">Search Results Not Found</h3>
+    <span class="title-decor-line"></span>
+</div>
   {% endif %}
+</div>
 {% endblock %}

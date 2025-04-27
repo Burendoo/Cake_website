@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from django.views.generic import ListView, DetailView
 from .models import CakeModel, Flavour
+from django.core.paginator import Paginator, EmptyPage
 
 # Create your views here.
 
@@ -40,14 +41,26 @@ def flavours(request, flavour_slug):
 def search(request):
     if request.method == 'GET':
         query = request.GET.get('query')
+        page_number = request.GET.get('page', 1)  # Default to page 1
+        
         if query:
             cakes = CakeModel.objects.filter(name__icontains=query)
-
-        context = {
-            "cakes": cakes
-        }
-
-    return render(request, 'main/search.html', context)
+            paginator = Paginator(cakes, 9)  # Show 6 cakes per page
+            
+            try:
+                page_obj = paginator.page(page_number)
+            except EmptyPage:
+                # If page is out of range (e.g. 9999), deliver last page of results
+                page_obj = paginator.page(paginator.num_pages)
+            
+            context = {
+                "cakes": page_obj,
+                "query": query
+            }
+            return render(request, 'main/search.html', context)
+    
+    # Default return if no query
+    return render(request, 'main/search.html', {})
     
     
 class SingleCakeView(DetailView):

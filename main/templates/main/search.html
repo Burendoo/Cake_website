@@ -18,21 +18,24 @@
             <h3 class="section-title">Search Results Found</h3>
             <span class="title-decor-line"></span>
         </div>
-        <div class="search-cakes">
-            {% for cake in cakes %}
-                <div class="search-cake-card">
-                    <a href="{% url 'cake_info' cake.slug %}" class="cake-image-container">
-                        <img class="search-cake-image" src="{{ cake.image.url }}" alt="{{ cake.name }}">
-                        <div class="cake-name-overlay">{{ cake.name }}</div>
-                    </a>
-                    <div class="cake-details">
-                        <p>{{ cake.short_description }}</p>
-                        <p>Price: {{ cake.price }}€</p>
-                    </div>
-                    <a href="">Order Now</a>
+          <div class="search-cakes">
+              {% for cake in cakes %}
+              <div class="search-cake-card">
+                  <a href="{% url 'cake_info' cake.slug %}" class="cake-image-container">
+                      <img class="search-cake-image" src="{{ cake.image.url }}" alt="{{ cake.name }}">
+                      <div class="cake-name-overlay">{{ cake.name }}</div>
+                  </a>
+                  <div class="cake-description">
+                      <p>{{ cake.short_description }}</p>
                 </div>
-            {% endfor %} 
-        </div>
+                <div class="cake-price-container">
+                  <p class="cake-price">Price: {{ cake.price }}€</p>
+                  <a href="" class="order-button">Order Now</a>
+                </div>      
+              </div>
+              {% endfor %} 
+          </div>
+      </div>
         
         <div class="pagination-controls">
           {% if cakes.has_previous %}

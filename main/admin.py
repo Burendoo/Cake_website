@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CakeModel, Flavour
+from .models import CakeModel1, Flavour1
 
 
 # Register your models here.
@@ -20,6 +20,6 @@ class FlavourAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug':('flavour_name',)}
 
 
-admin.site.register(CakeModel, CakeAdmin)
-admin.site.register(Flavour, FlavourAdmin) 
+admin.site.register(CakeModel1, CakeAdmin)
+admin.site.register(Flavour1, FlavourAdmin) 
 

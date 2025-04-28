@@ -5,7 +5,7 @@ from django.utils.text import slugify
 # Create your models here.
 
 
-class Flavour(models.Model):
+class Flavour1(models.Model):
       flavour_name = models.CharField(max_length=100, unique=True)
       slug = models.SlugField(max_length=100, unique=True, db_index=True)
       
@@ -20,13 +20,13 @@ class Flavour(models.Model):
             super().delete(*args, **kwargs)
 
 
-class CakeModel(models.Model):
+class CakeModel1(models.Model):
       name = models.CharField(max_length=100)
       short_description = models.CharField(max_length=200,  null=True, blank=True)
       description = models.TextField()
       price = models.DecimalField(max_digits=10, decimal_places=2)
       image = models.ImageField(upload_to="cakes_image")
-      flavour = models.ManyToManyField(Flavour, related_name="flavour", blank=True)
+      flavour = models.ManyToManyField(Flavour1, related_name="flavour", blank=True)
       is_popular = models.BooleanField(default=False)
       is_available = models.BooleanField(default=True)
       created_at = models.DateTimeField(auto_now_add=True)

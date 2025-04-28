@@ -73,17 +73,20 @@
     </div>
 
 <div class="container">
-      <div class="flavous-container">
-            <h2>Flavours</h2>
-            <div class="flavours-cards">
-                  {% for flavour in flavours %}
-                        <div class="flavour-card">
-                              
-                              <a href="{% url "cake_by_flavour" flavour.slug%}">{{ flavour.flavour_name }}</a>
-                        </div>
-                  {% endfor %}
+      <div class="flavour-container">
+            <div class="section-flavour">
+                <span class="title-decor-line-flavour"></span>
+                <h3 class="section-title">Flavours</h3>
+                <span class="title-decor-line-flavour"></span>
             </div>
-      </div>
+            <div class="flavour-flex-container">  <!-- Changed from flavour-grid -->
+                {% for flavour in flavours %}
+                    <a href="{% url 'cake_by_flavour' flavour.slug %}" class="flavour-button">
+                        {{ flavour.flavour_name }}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
 
       <div class="latest-container">
             <div class="section-header">

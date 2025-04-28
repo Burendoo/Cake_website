@@ -9,6 +9,8 @@
       
       <link rel="stylesheet" href={% static 'style.css' %}>
       <link rel="stylesheet" href={% static "include/header.css" %}>
+      <link rel="stylesheet" href={% static "include/footer.css" %}>
+      
       {% block css_files %}
       {% endblock css_files %}
 </head>
@@ -19,6 +21,8 @@
       
       
       {% endblock content %}
+      {% include "main/includes/footer.html" %}
       </div>
+
 </body>
 </html>

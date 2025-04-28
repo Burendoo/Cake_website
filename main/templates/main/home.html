@@ -21,19 +21,21 @@
 		</div>
              <div class="popular-cakes">
                   {% if popular_cakes %}
-                  {% for cake in popular_cakes %}
+                        {% for cake in popular_cakes %}
                         <div class="popular-cake-card">
-                              <a href="{% url "cake_info" cake.slug %}" class="cake-image-container">
-                                    <img class="popular-cake-image" src="{{ cake.image.url }}" alt="{{ cake.name }}">
-                                    <div class="cake-name-overlay">{{ cake.name }}</div>
-                              </a>
-                              <div class="cake-details">
-                                    <p>{{ cake.short_description }}</p>
-                                    <p>Price: {{ cake.price }}€</p>
-                              </div>
-                              <a href="">Order Now</a>
+                            <a href="{% url 'cake_info' cake.slug %}" class="cake-image-container">
+                                <img class="popular-cake-image" src="{{ cake.image.url }}" alt="{{ cake.name }}">
+                                <div class="cake-name-overlay">{{ cake.name }}</div>
+                            </a>
+                            <div class="cake-description">
+                                <p>{{ cake.short_description }}</p>
+                          </div>
+                          <div class="cake-price-container">
+                            <p class="cake-price">Price: {{ cake.price }}€</p>
+                            <a href="" class="order-button">Order Now</a>
+                          </div>      
                         </div>
-                  {% endfor %} 
+                        {% endfor %} 
                   {% endif %}
             </div>
       </div>
@@ -95,19 +97,23 @@
                   <span class="title-decor-line"></span>
 		</div>
              <div class="latest-cakes">
-                  {% for cake in latest_cakes %}
+                  {% if latest_cakes %}
+                        {% for cake in latest_cakes %}
                         <div class="latest-cake-card">
-                              <a href="{% url "cake_info" cake.slug %}" class="cake-image-container">
-                                    <img class="latest-cake-image" src="{{ cake.image.url }}" alt="{{ cake.name }}">
-                                    <div class="cake-name-overlay">{{ cake.name }}</div>
-                              </a>
-                              <div class="cake-details">
-                                    <p>{{ cake.short_description }}</p>
-                                    <p>Price: {{ cake.price }}€</p>
-                              </div>
-                              <a href="">Order Now</a>
+                            <a href="{% url 'cake_info' cake.slug %}" class="cake-image-container">
+                                <img class="latest-cake-image" src="{{ cake.image.url }}" alt="{{ cake.name }}">
+                                <div class="cake-name-overlay">{{ cake.name }}</div>
+                            </a>
+                            <div class="cake-description">
+                                <p>{{ cake.short_description }}</p>
+                          </div>
+                          <div class="cake-price-container">
+                            <p class="cake-price">Price: {{ cake.price }}€</p>
+                            <a href="" class="order-button">Order Now</a>
+                          </div>      
                         </div>
-                  {% endfor %} 
+                        {% endfor %} 
+                  {% endif %}
             </div>
       </div>
 </div>

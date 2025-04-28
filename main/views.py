@@ -69,6 +69,28 @@ def search(request):
 
 def all_cakes(request):
     query = CakeModel1.objects.all()
+    page_number = request.GET.get('page', 1) 
+
+    if query:
+        cakes = query
+        paginator = Paginator(cakes, 12)
+
+        try:
+            page_obj = paginator.page(page_number)
+
+        except EmptyPage:
+            page_obj = paginator.page(paginator.num_pages)
+
+        context = {
+                "cakes": page_obj,
+                "query": query,
+                "page_num":page_number
+
+            }
+        return render(request, 'main/all_cakes.html', context)
+    
+    # Default return if no query
+    return render(request, 'main/all_cakes.html', {})
     
 
 

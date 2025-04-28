@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
 
+
+
 html {
     box-sizing: border-box;
     width: 100vw;
@@ -105,7 +107,15 @@ body {
     text-decoration: none;
     color: #181818;
     font-size: 1.3rem;
-    font-weight: bold;
+    font-weight: 400;
+}
+
+.info-list{
+    margin-left: 20px;
+}
+
+.nav-list{
+    margin-right: 20px;
 }
 
 .nav-list li a {
@@ -114,6 +124,8 @@ body {
     font-size: 1.2rem;
     font-weight: 500;
 }
+
+
 
 /* Divider Line */
 .line {

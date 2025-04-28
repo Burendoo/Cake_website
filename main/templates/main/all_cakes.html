@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Home
+{% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'main/all_cakes.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    {% if cakes %}
+    <div class="all-cakes-container">
+        <div class="section-header">
+            <span class="title-decor-line"></span>
+            <h3 class="section-title">All Cakes</h3>
+            <span class="title-decor-line"></span>
+            <h4 class="page-num">Page {{ page_num }}</h4>
+        </div>
+          <div class="all-cakes-cakes">
+              {% for cake in cakes %}
+              <div class="all-cakes-cake-card">
+                  <a href="{% url 'cake_info' cake.slug %}" class="cake-image-container">
+                      <img class="all-cakes-cake-image" src="{{ cake.image.url }}" alt="{{ cake.name }}">
+                      <div class="cake-name-overlay">{{ cake.name }}</div>
+                  </a>
+                  <div class="cake-description">
+                      <p>{{ cake.short_description }}</p>
+                </div>
+                <div class="cake-price-container">
+                  <p class="cake-price">Price: {{ cake.price }}€</p>
+                  <a href="" class="order-button">Order Now</a>
+                </div>      
+              </div>
+              {% endfor %} 
+          </div>
+      </div>
+        
+        <div class="pagination-controls">
+          {% if cakes.has_previous %}
+          <div class="button-container">
+              <form method="get" class="pagination-form">
+                  <input type="hidden" name="query" value="{{ query }}">
+                  <input type="hidden" name="page" value="{{ cakes.previous_page_number }}">
+                  <button type="submit" class="pagination-button">← Previous Page</button>
+              </form>
+          </div>
+          {% endif %}
+  
+          {% if cakes.has_next %}
+          <div class="button-container">
+              <form method="get" class="pagination-form">
+                  <input type="hidden" name="query" value="{{ query }}">
+                  <input type="hidden" name="page" value="{{ cakes.next_page_number }}">
+                  <button type="submit" class="pagination-button">Next Page →</button>
+              </form>
+          </div>
+          {% endif %}
+      </div>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

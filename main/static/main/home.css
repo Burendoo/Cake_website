@@ -389,4 +389,30 @@
     padding: 0 1rem;
     text-align: center;
   }
+
+  .search-form {
+    padding: 1rem 0;
+    margin-bottom: 40px;
+  }
+
+  .search-input {
+    width: 60%;
+    padding: 0.5rem;
+    font-size: 1.4rem;
+  }
+
+  .search-button {
+    padding: 0.5rem 1rem;
+    font-size: 1.4rem;
+    margin-left: 0.5rem;
+  }
+
+  
+  .popular-container .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+  }
 }

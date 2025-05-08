@@ -1,89 +1,163 @@
+header, .header, .about-header {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: WHITE !important;
+}
+
+
 body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #fff9f7;
-      color: #333;
-      line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: white !important; 
+    color: #333;
+    line-height: 1.6;
+    border: none !important; /* Add this line */
   }
   
   .about-page {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
   }
   
   .about-header {
-      text-align: center;
-      margin-bottom: 50px;
+    text-align: center;
+    margin-bottom: 50px;
+    width: 100%;
   }
   
   .about-header h1 {
-      font-size: 3rem;
-      color: #d45d79;
-      font-weight: 700;
+    font-size: 3rem;
+    color: #d45d79;
+    font-weight: 700;
+    margin-bottom: 20px;
   }
   
-  .about-content {
-      display: flex;
-      align-items: center;
-      gap: 50px;
+  .about-content,
+  .about-content-2 {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 50px;
   }
-
-  .about-content-2{
-      margin-top: 50px;
-      display: flex;
-      align-items: center;
-      gap: 50px;
+  
+  .about-content-2 {
+    margin-top: 50px;
   }
   
   .about-text {
-      flex: 1;
-      padding: 20px;
+    flex: 1;
+    padding: 20px;
   }
   
   .about-text p {
-      margin-bottom: 20px;
-      font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
   }
   
-  .about-image {
-      flex: 1;
-      text-align: center;
+  .about-image,
+  .about-image-2 {
+    flex: 1;
+    text-align: center;
   }
   
-  .about-image img {
-      width: 350px;
-      height: 350px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 8px solid #f8d7e3;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  .about-image img,
+  .about-image-2 img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 8px solid #f8d7e3;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+  
+  .about-image-2 img {
+    border-radius: 20px;
   }
 
-  .about-image-2 img {
-      width: 350px;
-      height: 350px;
-      border-radius: 20px;
-      object-fit: cover;
-      border: 8px solid #f8d7e3;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  } 
   
-  /* Responsive Design */
+  
+  
+  /* Tablet View (768px) */
   @media (max-width: 768px) {
-      .about-content {
-          flex-direction: column;
-          gap: 30px;
-      }
-      
-      .about-header h1 {
-          font-size: 2.2rem;
-      }
-      
-      .about-image img {
-          width: 250px;
-          height: 250px;
-      }
+    .about-page {
+      padding: 30px 20px;
+    }
+    
+    .about-header h1 {
+      font-size: 2.5rem;
+    }
+    
+    .about-content,
+    .about-content-2 {
+      flex-direction: column;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .about-text {
+      padding: 0;
+      order: 2;
+    }
+    
+    .about-image img,
+    .about-image-2 img {
+      width: 300px;
+      height: 300px;
+    }
+    
+    .about-content-2 .about-text {
+      order: 0;
+    }
   }
-       
+  
+  /* Mobile View (480px) */
+  @media (max-width: 480px) {
+    .about-header {
+      margin-bottom: 30px;
+      width: 100%;
+    }
+    
+    .about-header h1 {
+      font-size: 2rem;
+      width: 100%;
+    }
+    
+    .about-content,
+    .about-content-2 {
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .about-text p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+    
+    .about-image img,
+    .about-image-2 img {
+      width: 250px;
+      height: 250px;
+      border-width: 6px;
+    }
+    
+    .about-content-2 {
+      margin-top: 30px;
+    }
+  }
+  
+  /* Small Mobile View (360px) */
+  @media (max-width: 360px) {
+    .about-image img,
+    .about-image-2 img {
+      width: 200px;
+      height: 200px;
+    }
+    
+    .about-header h1 {
+      font-size: 1.8rem;
+      width: 100%;
+    }
+  }

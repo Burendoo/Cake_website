@@ -19,6 +19,7 @@ body {
     font-family: Arial, sans-serif;
     /* Scrollbar consistency */
     padding-right: calc(100vw - 100%);
+    background-color: #fdfdfd !important;
 }
 
 @supports (scrollbar-gutter: stable) {

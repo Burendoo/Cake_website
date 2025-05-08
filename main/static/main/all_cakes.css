@@ -1,41 +1,39 @@
-.container{
+.container {
     max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 /* all-cakes results */
-
 .section-header {
     text-align: center;
-    margin: 70px 0 40px 0;
+    margin: 4rem 0 2.5rem 0;
     position: relative;
-    
 }
-
-
 
 .section-header .section-title {
     display: inline-block;
-    font-size: 30px;
+    font-size: clamp(1.5rem, 5vw, 2rem);
     font-weight: bold;
     color: #030303;
     margin: 0 15px;
     position: relative;
     z-index: 1;
     background-color: #fff;
-    /* background to cover the line behind */
     padding: 0 10px;
 }
 
 .title-decor-line {
     display: inline-block;
-    width: 20rem;
+    width: 100%;
+    max-width: 20rem;
     height: 2px;
     background-color: #6b6b6b;
     vertical-align: middle;
 }
 
-.page-num{
-    font-size: 1.4rem;
+.page-num {
+    font-size: 1.2rem;
     color: #b02349;
     margin-top: 10px;
     text-align: center;
@@ -43,116 +41,190 @@
 
 /* Individual Card */
 .all-cakes-cakes {
-
-background-color: #fff5f5;      
-display: flex;
-flex-wrap: wrap;
-margin: 0 auto;
-padding: 2rem;
-gap: 2rem;
-justify-content: flex-start;
+    background-color: #fff5f5;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+    margin: 0 auto;
+    padding: 1rem;
+    gap: 1.5rem;
+    justify-content: center;
 }
 
 /* Individual Card */
 .all-cakes-cake-card {
-width: 24rem;
-background: white;
-border-radius: 0.5rem;
-overflow: hidden;
-box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
-padding: 2rem;
-display: flex;
-flex-direction: column;
-position: relative;
+    background: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    max-width: 24rem;
+    margin: 0 auto;
 }
 
 /* Image Container */
 .cake-image-container {
-position: relative;
-margin: -2rem -2rem 1rem -2rem; /* Counteracts card padding */
+    position: relative;
+    margin: -1.5rem -1.5rem 1rem -1.5rem; /* Counteracts card padding */
 }
 
 .all-cakes-cake-image {
-width: 100%;
-height: 25rem;
-object-fit: cover;
-display: block;
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    display: block;
 }
 
 /* Name Overlay */
 .cake-name-overlay {
-position: absolute;
-bottom: 1rem;
-left: 1rem;
-right: 1rem;
-background-color: pink;
-color: black;
-padding: 1rem;
-font-size: 1.6rem;
-font-weight: bold;
-text-align: center;
-border-radius: 0.3rem;
-transform: translateY(50%); /* Makes it overlap the image edge */
-z-index: 2;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    background-color: pink;
+    color: black;
+    padding: 0.8rem;
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    font-weight: bold;
+    text-align: center;
+    border-radius: 0.3rem;
+    transform: translateY(50%);
+    z-index: 2;
 }
 
 .cake-description {
-    margin-top: 20px;
+    margin-top: 1.5rem;
     flex-grow: 1;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     position: relative;
-    min-height: 6rem;
-    line-height: 1.2;
-  }
-  
-  /* Price Position */
-  .cake-price-container{
-    margin-top: 20px;
+    min-height: 4rem;
+    line-height: 1.4;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+/* Price Position */
+.cake-price-container {
+    margin-top: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+}
 
-  .cake-price{
+.cake-price {
     font-weight: bold;
-    font-size: 1.4rem;
-  }
-  
-  /* Order Button */
-  .order-button{
+    font-size: 1.2rem;
+}
+
+/* Order Button */
+.order-button {
     display: inline-block;
     background: #ff6b6b;
     color: white;
-    padding: 0.8rem 1.5rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 0.3rem;
     text-decoration: none;
     text-align: center;
     align-self: flex-end;
     margin-top: auto;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
 
-  }
+.order-button:hover {
+    background: #e05555;
+}
 
 /* Next and previous button */
-
-
 .pagination-controls {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 2rem;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .pagination-form {
-    margin: 0 10px;
+    margin: 0 0.5rem;
 }
 
 .pagination-button {
-    padding: 8px 16px;
+    padding: 0.6rem 1.2rem;
     background-color: #f8f9fa;
     border: 1px solid #ddd;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
 }
 
 .pagination-button:hover {
     background-color: #e9ecef;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .all-cakes-cakes {
+        grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    }
+    
+    .all-cakes-cake-card {
+        padding: 1rem;
+    }
+    
+    .cake-image-container {
+        margin: -1rem -1rem 0.5rem -1rem;
+    }
+    
+    .all-cakes-cake-image {
+        height: 16rem;
+    }
+    
+    .cake-name-overlay {
+        padding: 0.6rem;
+        bottom: 0.5rem;
+    }
+    
+    .pagination-controls {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-header {
+        margin: 3rem 0 2rem 0;
+    }
+    
+    .all-cakes-cakes {
+        grid-template-columns: 1fr;
+        padding: 0.5rem;
+        gap: 1rem;
+    }
+    
+    .all-cakes-cake-image {
+        height: 14rem;
+    }
+    
+    .cake-price-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .order-button {
+        align-self: flex-start;
+        width: 100%;
+    }
+    
+    .pagination-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .pagination-form {
+        margin: 0.3rem 0;
+    }
 }

@@ -106,6 +106,31 @@
 .cake-details {
   flex-grow: 1;
   padding: 1rem 0;
+
+}
+.search-input{
+      width: 70%;
+      padding: 0.5rem 1rem;
+      border: 2px solid #555555;
+      font-size: 1.6rem;
+     
+}
+
+.search-button{
+      padding: 0.5rem 9rem;
+      background-color: #ff6b6b;
+      color: white;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      margin-left: 1rem;
+}
+/* End of Search Bar */
+
+/* About */
+
+.section-about {
+  text-align: center;
   margin: 100px 0 80px 0;
   position: relative;
   min-height: 6rem;

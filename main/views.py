@@ -34,14 +34,30 @@ def about(request):
 
 def flavours(request, flavour_slug):
     flavour = Flavour1.objects.get(slug=flavour_slug)
-    cakes = CakeModel1.objects.filter(flavour=flavour)
+    query = CakeModel1.objects.filter(flavour=flavour)
+    page_number = request.GET.get('page', 1)
 
-    context = {
-        "flavour":flavour,
-        "cakes":cakes
-    }
+    if query:
+        cakes = query
+        paginator = Paginator(cakes, 9)
 
-    return render(request, "main/flavour.html", context)
+        try:
+            page_obj = paginator.page(page_number)
+
+        except EmptyPage:
+            page_obj = paginator.page(paginator.num_pages)
+
+
+        context = {
+            "flavour":flavour,
+            "cakes":page_obj,
+            "query":query,
+            "page_number":page_number
+        }
+
+        return render(request, "main/flavour.html", context)
+    
+    return render(request, 'main/flavour.html', {})
 
 
 

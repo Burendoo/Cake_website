@@ -69,3 +69,18 @@ class CakeModel1(models.Model):
                 os.remove(self.image.path)
         # Then delete the database record
         super().delete(*args, **kwargs)
+
+
+class Payment(models.Model):
+      cake = models.ForeignKey(CakeModel1, on_delete=models.CASCADE, related_name='payments')
+      customer_name = models.CharField(max_length=255)
+      customer_email = models.EmailField(max_length=255)
+      amount = models.DecimalField(max_digits=10, decimal_places=2)
+      currency = models.CharField(max_length=10, default='eur')
+      payment_intent_id = models.CharField(max_length=255, unique=True)
+      status = models.CharField(max_length=50, default='pending')
+      created_at = models.DateTimeField(auto_now_add=True)
+
+      
+      def __str__(self):
+            return f"Payment {self.customer_name} - {self.amount} {self.currency} - {self.status}"

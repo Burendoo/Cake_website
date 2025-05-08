@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Checkout | Secure Payment
+{% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'main/checkout.css' %}" />
+  
+  
+  
+  {% endblock %}
+
+{% block content %}
+<div class="container">
+      <div class="checkout-container">
+            <center>
+                  <img src="{{cake.image.url }}" alt="">
+            </center>
+            <h3 class="text-center">Confirm your order</h3>
+            <p class="text-muted text-center">You are about to purchase:</p>
+            <h4 class="text-center text-primary"> {{cake.price}}</h4>
+
+            <form action="" method="POST">
+                  {% csrf_token %}
+                  <button id="checkout-button" class="btn btn-pay">Proceed to Payment</button>
+            </form>
+      </div>
+</div>
+
+<script>
+      $(document).ready(function() {
+          $("#checkout-button").click(function(e) {
+              e.preventDefault(); // Prevent default form submission
+              
+              $.ajax({
+                  url: "{% url 'create_checkout_session' cake.id %}",
+                  type: "POST",
+                  dataType: "json",
+                  headers: {
+                      "X-CSRFToken": "{{ csrf_token }}"
+                  },
+                  data: {}, // Include empty data object if needed
+                  success: function(response) {
+                      if (response.checkout_url) {
+                          window.location.href = response.checkout_url;
+                      } else if (response.error) {
+                          alert("Error: " + response.error);
+                      } else {
+                          alert("Unexpected response from server");
+                      }
+                  },
+                  error: function(xhr, status, error) {
+                      try {
+                          var err = JSON.parse(xhr.responseText);
+                          alert("Payment failed: " + (err.error || err.message || "Unknown error"));
+                      } catch (e) {
+                          alert("Payment process failed: " + error);
+                      }
+                  }
+              });
+          });
+      });
+      </script>
+{% endblock %}

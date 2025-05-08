@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CakeModel1, Flavour1
+from .models import CakeModel1, Flavour1, Payment
 
 
 # Register your models here.
@@ -22,4 +22,5 @@ class FlavourAdmin(admin.ModelAdmin):
 
 admin.site.register(CakeModel1, CakeAdmin)
 admin.site.register(Flavour1, FlavourAdmin) 
+admin.site.register(Payment) 
 

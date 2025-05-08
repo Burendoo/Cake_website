@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Payment Failed
+{% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'main/payment_failed.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="container">
+      <div class="success-container">
+        <div class="success-icon">&#100060</div>
+        <h3>Payment Failed</h3>
+        <p class="text-muted">
+          Something went wrong with your transaction. Please try again.
+        </p>
+        <a href="/" class="btn btn-home">Go to Homepage</a>
+      </div>
+    </div>
+{% endfor %}
+
+
+{% endblock %}

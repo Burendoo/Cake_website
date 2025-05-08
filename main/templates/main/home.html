@@ -32,7 +32,7 @@
                           </div>
                           <div class="cake-price-container">
                             <p class="cake-price">Price: {{ cake.price }}€</p>
-                            <a href="" class="order-button">Order Now</a>
+                            <a href="{% url "checkout" cake.id %}" class="order-button">Order Now</a>
                           </div>      
                         </div>
                         {% endfor %} 

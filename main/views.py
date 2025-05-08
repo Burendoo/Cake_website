@@ -1,8 +1,13 @@
 from django.shortcuts import render
 from django.views import View
 from django.views.generic import ListView, DetailView
-from .models import CakeModel1, Flavour1
+from .models import CakeModel1, Flavour1, Payment
 from django.core.paginator import Paginator, EmptyPage
+from django.shortcuts import get_object_or_404
+from django.conf import settings
+import stripe
+from django.http import JsonResponse
+import json
 
 # Create your views here.
 
@@ -111,3 +116,128 @@ def contact(request):
     return render(request, 'main/contact.html')
 
 
+# views for payment
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+def checkout(request, cake_id):
+    cake = get_object_or_404(CakeModel1, id=cake_id)
+    return render(request, 'main/checkout.html', {'cake': cake})
+
+
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse, HttpResponseBadRequest
+
+@csrf_exempt  # Temporarily add this for testing, then implement proper CSRF
+def create_checkout_session(request, cake_id):
+    cake = get_object_or_404(CakeModel1, id=cake_id)
+    
+    try:
+        # Build absolute URLs
+        base_url = request.build_absolute_uri('/')[:-1]  # Remove trailing slash
+        success_url = f"{base_url}/payment-success?session_id={{CHECKOUT_SESSION_ID}}&cake_id={cake.id}"
+        cancel_url = f"{base_url}/payment-failed"
+        
+
+        try:
+            unit_amount = int(float(cake.price) * 100)
+            if unit_amount <= 0:
+                return JsonResponse({'error': 'Price must be positive'}, status=400)
+        except (ValueError, TypeError):
+            return JsonResponse({'error': 'Invalid price format'}, status=400)
+        
+        session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            line_items=[{
+                'price_data': {
+                    'currency': 'usd',
+                    'product_data': {
+                        'name': cake.name,
+                    },
+                    'unit_amount': int(float(cake.price) * 100),
+                },
+                'quantity': 1,
+            }],
+            mode='payment',
+            success_url=success_url,
+            cancel_url=cancel_url
+        )
+        return JsonResponse({'checkout_url': session.url})
+    
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=400)
+
+
+def payment_success(request):
+    session_id = request.GET.get('session_id')
+    cake_id = request.GET.get('cake_id')
+    
+    
+    if not session_id or not cake_id:
+        return JsonResponse({"error": "Invalid session or cake ID"}, status=400)
+    
+    try:
+        session = stripe.checkout.Session.retrieve(session_id)
+        cake = get_object_or_404(CakeModel1, id=cake_id)
+        
+        customer_email = session.customer_email or session.customer_details.get('email')
+        customer_name = session.customer_details.name
+
+        if session.payment_status == 'paid':
+            Payment.objects.create(
+                cake=cake,
+                customer_name= session.customer_details.name,
+                customer_email=customer_email,
+                amount= session.amount_total / 100,  # Convert cents to dollars
+                payment_intent_id=session.payment_intent,
+                status='paid',
+            )
+
+            return render(request, 'main/payment_success.html', {'customer_name': customer_name})
+        
+        return JsonResponse({"error": "Payment not successful"}, status=400)
+    
+    except stripe.error.StripeError as e:
+        return JsonResponse({"error": str(e)}, status=400)
+    
+def payment_failed(request):
+    error_message = request.GET.get('error_message', 'Payment failed. Please try again.')
+    return render(request, 'main/payment_failed.html', {'error_message': error_message})
+
+
+
+endpoint_secret = ''
+
+@csrf_exempt
+def stripe_webhook(request):
+    payload = request.body
+    sig_header = request.headers.get('Stripe-Signature')
+    
+    try:
+        event = stripe.Webhook.construct_event(
+            payload, sig_header, endpoint_secret
+        )
+    except ValueError as e:
+        return JsonResponse({"error":"Invalid payload"}, status=400)
+    except stripe.error.SignatureVerificationError as e:
+        return JsonResponse({"error":"Invalid signature"}, status=400)
+
+    print("Received event: ", json.loads(payload))
+        # Fulfill the purchase...
+
+    return JsonResponse({'status': 'success'}, status=200)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

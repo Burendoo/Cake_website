@@ -131,3 +131,10 @@ MEDIA_URL = "/files/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+import os
+from decouple import config
+
+STRIPE_PUBLIC_KEY = config('public_key')
+STRIPE_SECRET_KEY = config('secret_key')
